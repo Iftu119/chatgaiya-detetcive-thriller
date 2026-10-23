@@ -10,7 +10,6 @@
     set(k, v) { try { localStorage.setItem(k, JSON.stringify(v)); } catch (e) {} }
   };
 
-  /* ---------- shared settings (also used on home page) ---------- */
   const prefs = Object.assign({ fs: 18, paper: false }, store.get("cds-prefs", {}));
   function applyPrefs() {
     document.documentElement.style.setProperty("--fs", prefs.fs + "px");
@@ -22,7 +21,7 @@
   window.LIBRARY = list => { LIB = list; };
 
   const app = $("#app");
-  if (!app) return; // not the reader page
+  if (!app) return;
 
   const id = new URLSearchParams(location.search).get("case") || "case-01";
   if (!/^case-\d{2,3}$/.test(id)) { app.innerHTML = '<p class="empty">কেসটা পাওয়া যায়নি।</p>'; return; }
@@ -42,11 +41,9 @@
     document.title = S.title + " | " + (window.SITE ? SITE.name : "");
     $("#topTitle").textContent = "কেস " + S.number + " · " + S.title;
 
-    /* clue → chapter index */
     const clueAt = {};
     S.chapters.forEach((c, i) => c.body.forEach(b => { if (b && b.clue) clueAt[b.clue] = i; }));
 
-    /* ---------- render helpers ---------- */
     function clueHTML(key, inSheet) {
       const c = S.clues[key]; if (!c) return "";
       let body = "";
@@ -120,11 +117,9 @@
         (navigator.share ? '<button class="btn ghost" id="shareBtn">↗ শেয়ার করুন</button>' : "") + "</div>" +
         (nx ? '<div class="case' + (nx.status === "soon" ? " soon" : "") + '" style="margin-bottom:18px"><div class="body"><div class="kicker">পরের কেস · ' + nx.number + "</div><h3>" + esc(nx.title) + "</h3><p>" + esc(nx.blurb || "") + "</p>" +
           (nx.status === "published" ? '<a class="btn" href="read.html?case=' + nx.id + '">পড়ুন ›</a>' : '<span class="chip">শীঘ্রই আসছে</span>') + "</div></div>" : "") +
-        '<div class="sub-box"><h3>✉️ নতুন কেস এলে জানতে চান?</h3><p>ইমেইল দিয়ে রাখুন। নতুন কেস প্রকাশ হলেই একটা ছোট মেইল যাবে।</p><a class="btn" href="subscribe.html">সাবস্ক্রাইব করুন</a></div>' +
         '<p style="text-align:center;margin-top:26px"><a href="index.html">← সব কেস ফাইল</a></p></div>';
     }
 
-    /* ---------- navigation ---------- */
     function go(i, fromHash) {
       closeSheet();
       i = Math.max(-1, Math.min(N, i));
@@ -146,7 +141,7 @@
       const b = $("#clueBadge"); b.textContent = BN(n); b.style.display = n ? "grid" : "none";
     }
     document.addEventListener("click", e => {
-      const g = e.target.closest("[data-go]"); if (g) { closeSheet(); go(+g.dataset.go); return; }
+      const g = e.target.closest("[data-go]"); if (g) { go(+g.dataset.go); return; }
       const s = e.target.closest("[data-sheet]"); if (s) openSheet(s.dataset.sheet);
     });
     $("#prevBtn").onclick = () => go(cur - 1);
@@ -158,7 +153,6 @@
     });
     window.addEventListener("hashchange", () => { const m = location.hash.match(/^#p(\d+)$/); if (m) go(+m[1] - 1, true); });
 
-    /* progress within the current page */
     const bar = $("#prog");
     function onScroll() {
       const h = document.documentElement.scrollHeight - innerHeight;
@@ -166,7 +160,6 @@
     }
     addEventListener("scroll", onScroll, { passive: true });
 
-    /* ---------- sheets ---------- */
     const sheet = $("#sheet"), scrim = $("#scrim");
     function openSheet(kind) {
       let title = "", html = "";

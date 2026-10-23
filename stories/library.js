@@ -11,7 +11,6 @@ LIBRARY([
     place: "গোলাম রসুল মার্কেট",
     chapters: "১২ পর্ব",
     minutes: "প্রায় ৩৫ মিনিট",
-    date: "অক্টোবর ২০২৬",
     status: "published"
   },
   {

@@ -3,7 +3,6 @@
   --bg: #101214; --bg2: #171a1d; --card: #1d2125; --line: #2d3338;
   --text: #ece6da; --soft: #cfc8bb; --muted: #959ea3;
   --gold: #e0a93f; --rust: #c4553a; --green: #7dffa8;
-  --paper: #f6f1e6; --ink: #24201b;
   --head: "Noto Serif Bengali", "Nirmala UI", serif;
   --body: "Hind Siliguri", "Noto Sans Bengali", "Nirmala UI", sans-serif;
   --mono: "JetBrains Mono", ui-monospace, "Courier New", monospace;
@@ -17,6 +16,7 @@ body { margin: 0; background: var(--bg); color: var(--text); font-family: var(--
 a { color: var(--gold); text-decoration: none; }
 img { max-width: 100%; display: block; }
 button { font-family: inherit; }
+code { font-family: var(--mono); font-size: .9em; }
 .wrap { max-width: 980px; margin: 0 auto; padding: 0 18px; }
 
 /* ---------- Header ---------- */
@@ -30,7 +30,6 @@ button { font-family: inherit; }
 .mark { flex: none; width: 34px; height: 34px; border-radius: 50%; border: 2px solid var(--gold); display: grid; place-items: center; font-size: 17px; }
 .brand b { font-family: var(--head); font-size: 16px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .top .link { color: var(--soft); font-size: 15px; padding: 8px 10px; border-radius: 8px; white-space: nowrap; }
-.top .link.cta { background: var(--gold); color: #17130b; font-weight: 600; }
 .icon-btn { flex: none; width: 42px; height: 42px; border-radius: 10px; border: 1px solid var(--line); background: var(--card); color: var(--text); font-size: 17px; cursor: pointer; }
 
 /* ---------- Home ---------- */
@@ -68,28 +67,14 @@ button { font-family: inherit; }
 .case .resume-line { margin-top: 10px; font-size: 14px; color: var(--green); }
 
 .about p { color: var(--soft); margin: 0 0 14px; }
-.sub-box { background: linear-gradient(135deg, #1f1a10, #1d2125); border: 1px solid #4d3d1c; border-radius: 16px; padding: 22px 18px; }
-.sub-box h3 { font-family: var(--head); margin: 0 0 6px; font-size: 22px; }
-.sub-box p { color: var(--soft); margin: 0 0 16px; }
 
 .foot { border-top: 1px solid var(--line); padding: 28px 18px calc(28px + var(--safe)); text-align: center; color: var(--muted); font-size: 14px; }
 .foot .code { font-family: var(--mono); color: var(--green); font-size: 12px; letter-spacing: .1em; }
 .foot a { color: var(--soft); }
 
-/* ---------- Subscribe page ---------- */
-.form-card { background: var(--card); border: 1px solid var(--line); border-radius: 16px; padding: 22px 18px; }
-.form-card label { display: block; font-size: 15px; color: var(--soft); margin-bottom: 8px; }
-.form-card input[type=email] { width: 100%; min-height: 52px; border-radius: 12px; border: 1px solid #3a4248; background: #0f1113; color: var(--text); padding: 0 14px; font-size: 17px; font-family: var(--body); margin-bottom: 12px; }
-.form-card input:focus { outline: 2px solid var(--gold); border-color: transparent; }
-.note { font-size: 14px; color: var(--muted); margin-top: 12px; }
-.ok { display: none; background: #12291b; border: 1px solid #2f6b45; color: #bdf5cf; border-radius: 12px; padding: 14px; margin-top: 12px; }
-.warn { background: #2b2412; border: 1px solid #6b5520; color: #f0dca8; border-radius: 12px; padding: 14px; font-size: 15px; }
-.perks { list-style: none; padding: 0; margin: 18px 0 0; display: grid; gap: 10px; }
-.perks li { display: flex; gap: 10px; color: var(--soft); }
-
 /* ---------- Reader ---------- */
 body.reader { padding-bottom: calc(var(--bar) + var(--safe)); }
-.progress { position: fixed; top: 56px; left: 0; right: 0; height: 3px; z-index: 41; background: transparent; }
+.progress { position: fixed; top: 56px; left: 0; right: 0; height: 3px; z-index: 41; }
 .progress i { display: block; height: 100%; width: 0; background: var(--gold); transition: width .15s; }
 .page { max-width: 680px; margin: 0 auto; padding: 22px 20px 40px; }
 
@@ -124,7 +109,7 @@ body.reader { padding-bottom: calc(var(--bar) + var(--safe)); }
 .pause { margin: 26px 0; border: 2px dashed var(--gold); border-radius: 12px; padding: 14px 16px; color: var(--gold); font-size: 16px; display: flex; gap: 10px; }
 
 /* Clue cards */
-.clue { margin: 24px -6px 28px; background: #f4eddd; color: var(--ink); border-radius: 14px; overflow: hidden; box-shadow: 0 8px 24px rgba(0,0,0,.35); }
+.clue { margin: 24px -6px 28px; background: #f4eddd; color: #24201b; border-radius: 14px; overflow: hidden; box-shadow: 0 8px 24px rgba(0,0,0,.35); }
 .clue-h { display: flex; align-items: center; gap: 10px; padding: 12px 14px; background: #2a2622; color: #fff; }
 .clue-h .ic { font-size: 20px; }
 .clue-h b { flex: 1; font-size: 16px; line-height: 1.35; }
@@ -133,7 +118,7 @@ body.reader { padding-bottom: calc(var(--bar) + var(--safe)); }
 .screen { background: #0c1a12; color: var(--green); font-family: var(--mono); font-size: 13px; line-height: 1.75; padding: 12px 14px; border-radius: 8px; border: 2px solid #2b3a30; overflow-x: auto; white-space: pre; }
 .screen mark { background: rgba(255,214,90,.22); color: #ffe48a; border-radius: 3px; padding: 0 2px; }
 .legend { display: grid; grid-template-columns: auto 1fr; gap: 4px 12px; margin-top: 12px; font-size: 14px; }
-.legend code { font-family: var(--mono); font-size: 12.5px; background: #e5dcc8; padding: 1px 6px; border-radius: 4px; align-self: start; }
+.legend code { font-size: 12.5px; background: #e5dcc8; padding: 1px 6px; border-radius: 4px; align-self: start; }
 .look { margin: 0; padding: 12px 14px; background: #fff6d8; border-top: 1px solid #e3d3a4; font-size: 15px; display: flex; gap: 8px; line-height: 1.6; }
 .look::before { content: "🔍"; }
 .clue svg { width: 100%; height: auto; display: block; font-family: var(--body); }
@@ -148,7 +133,6 @@ body.reader { padding-bottom: calc(var(--bar) + var(--safe)); }
 .clue tr.hl td { background: #f8d9cb; font-weight: 600; }
 .clue .cap { font-weight: 700; margin-bottom: 8px; font-size: 15px; }
 .tscroll { overflow-x: auto; }
-/* table → stacked cards on narrow phones */
 @media (max-width: 520px) {
   .clue table.stack thead { display: none; }
   .clue table.stack, .clue table.stack tbody, .clue table.stack tr, .clue table.stack td { display: block; width: 100%; }
@@ -158,7 +142,6 @@ body.reader { padding-bottom: calc(var(--bar) + var(--safe)); }
   .clue table.stack td:first-child { padding-top: 10px; } .clue table.stack td:last-child { padding-bottom: 10px; }
   .clue table.stack.two td { grid-template-columns: 1fr; gap: 0; }
 }
-/* timeline */
 .tl { font-size: 13px; }
 .tl-row { display: grid; grid-template-columns: 86px 1fr; align-items: center; gap: 8px; margin-bottom: 10px; }
 .tl-bar { position: relative; height: 26px; background: #4d8a5c; border-radius: 4px; overflow: hidden; }
@@ -226,7 +209,6 @@ body.paper .top, body.paper .bar { background: rgba(246,241,230,.96); }
 body.paper .text.diary { background: #e9eef5; border-color: #c9d5e3; }
 body.paper .text.diary::before { color: #3d6694; }
 body.paper .sms div { background: #dbe7f7; color: #13233a; }
-body.paper .icon-btn { background: #fffaf0; }
 
 @media (min-width: 760px) {
   .cases { grid-template-columns: 1fr 1fr; }

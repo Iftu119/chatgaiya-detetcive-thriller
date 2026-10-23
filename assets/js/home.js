@@ -1,11 +1,10 @@
-/* মূল পাতা আর সাবস্ক্রাইব পাতার জন্য */
+/* মূল পাতার জন্য */
 (function () {
   const get = (k, d) => { try { const v = localStorage.getItem(k); return v === null ? d : JSON.parse(v); } catch (e) { return d; } };
-  const prefs = get("cds-prefs", {});
-  if (prefs.paper) document.body.classList.add("paper");
+  if (get("cds-prefs", {}).paper) document.body.classList.add("paper");
   const BN = n => String(n).replace(/\d/g, d => "০১২৩৪৫৬৭৮৯"[d]);
   document.querySelectorAll(".yr").forEach(e => e.textContent = BN(new Date().getFullYear()));
-  if (window.SITE && SITE.facebook) { const f = document.getElementById("fbLink"); if (f) f.innerHTML = ' · <a href="' + SITE.facebook + '">ফেসবুক</a>'; }
+  if (window.SITE && SITE.facebook) { const f = document.getElementById("fbLink"); if (f) f.innerHTML = '<a href="' + SITE.facebook + '">ফেসবুক পেজ</a>'; }
 
   let LIB = [];
   window.LIBRARY = l => { LIB = l; };
