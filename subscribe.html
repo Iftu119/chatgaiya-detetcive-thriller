@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#101214">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27><text y=%27.9em%27 font-size=%2790%27>🔎</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;600;700&family=JetBrains+Mono:wght@400;600&family=Noto+Serif+Bengali:wght@600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+<link rel="alternate" type="application/rss+xml" title="চাটগাঁইয়া ডিটেকটিভ সিরিজ" href="feed.xml">
+<title>সাবস্ক্রাইব | চাটগাঁইয়া ডিটেকটিভ সিরিজ</title>
+<meta name="description" content="নতুন কেস প্রকাশ হলে ইমেইলে খবর পান।">
+</head>
+<body>
+<header class="top">
+  <a class="brand" href="index.html"><span class="mark">🔎</span><b>চাটগাঁইয়া ডিটেকটিভ</b></a>
+  <a class="link" href="index.html#cases">কেস</a>
+  <a class="link cta" href="subscribe.html">সাবস্ক্রাইব</a>
+</header>
+<main class="sec">
+  <div class="wrap" style="max-width:560px">
+    <div class="kicker">চাটগাঁইয়া ডিটেকটিভ সিরিজ</div>
+    <h2 style="font-family:var(--head);font-size:30px;margin:6px 0 8px">✉️ নতুন কেসের খবর পান</h2>
+    <p style="color:var(--soft);margin:0 0 22px">নতুন কেস প্রকাশ হলে আপনার ইমেইলে একটা ছোট মেইল যাবে। বিজ্ঞাপন নেই, অন্য কারও সাথে ঠিকানা শেয়ার হবে না।</p>
+
+    <div class="form-card">
+      <div id="notReady" class="warn" style="display:none">সাবস্ক্রিপশন শীঘ্রই চালু হবে। ততদিন <span id="fbAlt">ফেসবুক পেজে</span> চোখ রাখুন।</div>
+      <form id="subForm" method="post" target="bd_frame">
+        <label for="email">আপনার ইমেইল</label>
+        <input type="email" name="email" id="email" placeholder="name@example.com" autocomplete="email" inputmode="email" required>
+        <input type="hidden" name="embed" value="1">
+        <button class="btn full" type="submit">সাবস্ক্রাইব করুন</button>
+      </form>
+      <iframe name="bd_frame" title="subscribe" style="display:none"></iframe>
+      <div class="ok" id="ok">✅ ধন্যবাদ! আপনার ইনবক্সে একটা নিশ্চিতকরণ মেইল গেছে। মেইলের লিংকে চাপ দিলে সাবস্ক্রিপশন চালু হবে। না পেলে Spam/Promotions ফোল্ডার দেখুন।</div>
+      <ul class="perks">
+        <li>📬 শুধু নতুন কেস এলে মেইল</li>
+        <li>🔕 যেকোনো মেইলের নিচের লিংকে এক চাপে আনসাবস্ক্রাইব</li>
+        <li>📡 RSS ব্যবহার করলে: <a href="feed.xml">feed.xml</a></li>
+      </ul>
+    </div>
+    <p class="note">ইমেইল সংরক্ষণ ও পাঠানোর কাজ করে Buttondown।</p>
+    <p style="margin-top:24px"><a href="index.html">← সব কেস ফাইল</a></p>
+  </div>
+</main>
+<footer class="foot">
+  <p>© <span class="yr">২০২৬</span> কাঠঠোকরা · চাটগাঁইয়া ডিটেকটিভ সিরিজ</p>
+  <p>সব চরিত্র ও ঘটনা কাল্পনিক। স্থানগুলো চট্টগ্রামের।</p>
+  <p><a href="subscribe.html">সাবস্ক্রাইব</a> · <a href="feed.xml">RSS</a><span id="fbLink"></span></p>
+  <p class="code">E07 OVERLOAD · 11:42 · DAY-1</p>
+</footer>
+<script src="assets/js/config.js"></script>
+<script src="assets/js/home.js"></script>
+<script>
+(function () {
+  const f = document.getElementById("subForm");
+  if (!SITE.buttondown) { f.style.display = "none"; document.getElementById("notReady").style.display = "block";
+    if (SITE.facebook) document.getElementById("fbAlt").innerHTML = '<a href="' + SITE.facebook + '">ফেসবুক পেজে</a>'; return; }
+  f.action = "https://buttondown.com/api/emails/embed-subscribe/" + encodeURIComponent(SITE.buttondown);
+  f.addEventListener("submit", () => setTimeout(() => { f.style.display = "none"; document.getElementById("ok").style.display = "block"; }, 400));
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+<channel>
+  <title>চাটগাঁইয়া ডিটেকটিভ সিরিজ</title>
+  <link>https://YOUR-USERNAME.github.io/chatgaiya-detective/</link>
+  <description>চট্টগ্রামের পটভূমিতে বাংলা গোয়েন্দা গল্প। লিখছেন কাঠঠোকরা।</description>
+  <language>bn</language>
+
+  <!-- নতুন কেস এলে নিচের <item> ব্লকটা কপি করে সবার ওপরে বসান -->
+  <item>
+    <title>কেস ফাইল ০১: গোলাম রসুল মার্কেটের আইপিএস</title>
+    <link>https://YOUR-USERNAME.github.io/chatgaiya-detective/read.html?case=case-01</link>
+    <guid>case-01</guid>
+    <pubDate>Fri, 23 Oct 2026 18:00:00 +0600</pubDate>
+    <description>চল্লিশ বছরের পুরোনো আইপিএস মিস্ত্রি নিজের দোকানে বিদ্যুৎস্পৃষ্ট হয়ে মারা গেছেন। সবাই বলছে দুর্ঘটনা। দোকানের আইপিএস অন্য কথা বলছে।</description>
+  </item>
+</channel>
+</rss>
